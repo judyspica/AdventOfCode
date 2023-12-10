@@ -2,7 +2,7 @@
 
 public class Day03
 {
-    private static readonly string inputFile03 = "C:\\Users\\jeje7\\source\\repos\\AdventOfCode\\AdventOfCode\\inputs\\input03.txt";
+    private static readonly string inputFile03 = "input03.txt";
 
     public static void Part1()
     {
