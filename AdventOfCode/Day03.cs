@@ -2,7 +2,7 @@
 
 public class Day03
 {
-    private static readonly string inputFile03 = "input03.txt";
+    private static readonly string inputFile03 = "C:\\Users\\jeje7\\source\\repos\\AdventOfCode\\AdventOfCode\\inputs\\input03.txt";
 
     public static void Part1()
     {
@@ -10,17 +10,15 @@ public class Day03
         int rows = lines.Length;
         int cols = lines[0].Length;
         char[,] grid = new char[rows, cols];
-        char[,] gridCopy = new char[rows, cols];
         InitGrid(rows, cols, grid, lines);
-        InitGrid(rows, cols, gridCopy, lines);
+
+        var textRows = ConvertArrayToTextStrings(grid);
+        var allNumbers = ExtractAllNumbers(textRows);
 
         ReplaceNumbersAdjacentToSymbolsWithX(grid);
 
-        var textRows = ConvertArrayToTextStrings(grid);
-        var validNumbers = ExtractValidNumbers(textRows);
-
-        var textRowsCopy = ConvertArrayToTextStrings(gridCopy);
-        var allNumbers = ExtractAllNumbers(textRowsCopy);
+        var textRowsAfterReplacing = ConvertArrayToTextStrings(grid);
+        var validNumbers = ExtractValidNumbers(textRowsAfterReplacing);
 
         int difference = allNumbers.Sum() - validNumbers.Sum();
         Console.WriteLine("difference is : " + difference);
@@ -84,20 +82,15 @@ public class Day03
         for (int i = 0; i < lines.Count; i++)
         {
             string line = lines[i];
-            //Console.Write(line);
             for (int j = 0; j < line.Length; j++)
             {
                 char character = line[j];
                 if (character == '*')
                 {
                     var numbers = getAdjacentNumbers(lines, i, j);
-                    if (numbers.Count == 2)
-                    {
-                        count += numbers[0] * numbers[1];
-                    }
+                    if (numbers.Count == 2) count += numbers[0] * numbers[1];
                 }
             }
-            //Console.WriteLine();
         }
         Console.WriteLine(count);
     }

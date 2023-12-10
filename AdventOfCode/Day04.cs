@@ -2,7 +2,7 @@
 {
     public class Day04
     {
-        private static readonly string inputFile04 = "C:\\Users\\jeje7\\source\\repos\\AdventOfCode\\AdventOfCode\\inputs\\input04.txt";
+        private static readonly string inputFile04 = "input04.txt";
 
         //List<string> list = new List<string>
         //{
